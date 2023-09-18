@@ -9,3 +9,4 @@ if (!firstName) {
   console.error(`Invalid first name`);
   process.exit(1);
 }
+employee.firstName = firstName;
