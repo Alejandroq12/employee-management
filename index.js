@@ -18,3 +18,5 @@ if(!lastName) {
 }
 
 employee.lastName = lastName;
+
+let startDateYear = prompt("Employee Start Year (1990-2023): ");
