@@ -5,7 +5,7 @@ let employee = {};
 
 let firstName = prompt('First name: ');
 
-if(!firstName) {
-    console.error(`Invalid first name`);
-    ProcessingInstruction.exit(1);
+if (!firstName) {
+  console.error(`Invalid first name`);
+  process.exit(1);
 }
