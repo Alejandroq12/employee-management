@@ -10,3 +10,11 @@ if (!firstName) {
   process.exit(1);
 }
 employee.firstName = firstName;
+
+let lastName = prompt('Last name: ');
+if(!lastName) {
+  console.error(`Invalid last name`);
+  process.exit(1);
+}
+
+employee.lastName = lastName;
