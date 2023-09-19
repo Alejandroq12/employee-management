@@ -57,3 +57,6 @@ if (startDateDay < 1 || startDateDay > 31) {
   console.error(`Enter a start date day within the correct range`);
   process.exit(1);
 }
+
+// Date elements are correct, lets create the table
+employee.startDate = new Date(startDateYear, startDateMonth - 1, startDateDay);
