@@ -39,3 +39,8 @@ if (!Number.isInteger(startDateMonth)) {
   console.error(`Enter a valid start date month`);
   process.exit(1);
 }
+// Check if the number is in the range
+if (startDateMonth < 1 || startDateMonth > 12) {
+  console.error(`Enter a start date month within the correct range`);
+  process.exit(1);
+}
