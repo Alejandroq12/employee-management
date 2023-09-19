@@ -26,3 +26,8 @@ if (!Number.isInteger(startDateYear)) {
   console.error(`Enter a valid start date year`);
   process.exit(1);
 }
+// Check if the number is in the range
+if (startDateYear < 1990 || startDateYear > 2023) {
+  console.error(`Enter a start date year within the correct range`);
+  process.exit(1);
+}
