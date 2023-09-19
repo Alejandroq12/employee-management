@@ -67,3 +67,9 @@ if (isActive !== 'yes' && isActive !== 'no') {
   console.error(`Enter yes or no for employee active status`);
   process.exit(1);
 }
+
+employee.isActive = isActive === 'yes';
+
+// Output Employee JSON
+const json = JSON.stringify(employee, null, 2);
+console.log(`Employee: ${json}`);
