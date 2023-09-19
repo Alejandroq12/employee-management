@@ -20,7 +20,7 @@ if (!lastName) {
 employee.lastName = lastName;
 
 let startDateYear = prompt('Employee Start Year (1990-2023): ');
-startDateyear = Number(startDateYear);
+startDateYear = Number(startDateYear);
 // Check if it is a valid integer
 if (!Number.isInteger(startDateYear)) {
   console.error(`Enter a valid start date year`);
