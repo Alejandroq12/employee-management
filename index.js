@@ -60,3 +60,10 @@ if (startDateDay < 1 || startDateDay > 31) {
 
 // Date elements are correct, lets create the table
 employee.startDate = new Date(startDateYear, startDateMonth - 1, startDateDay);
+
+let isActive = prompt('Is employee active (yes or no): ');
+// Check if incorrect input
+if (isActive !== 'yes' && isActive !== 'no') {
+  console.error(`Enter yes or no for employee active status`);
+  process.exit(1);
+}
