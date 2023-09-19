@@ -44,3 +44,11 @@ if (startDateMonth < 1 || startDateMonth > 12) {
   console.error(`Enter a start date month within the correct range`);
   process.exit(1);
 }
+
+let startDateDay = promt('Employee start date day (1-31): ');
+startDateDay = Number(startDateDay);
+// Check if it is a valid integer
+if (!Number.isInteger(startDateDay)) {
+  console.error(`Enter a valid start date day`);
+  process.exit(1);
+}
