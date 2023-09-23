@@ -5,3 +5,5 @@ while (employees[i]) {
   console.log(`Name: ${employees[i].firstName} ${employees[i].lastName}`);
   i++;
 }
+
+console.log('-----');
