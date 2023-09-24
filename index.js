@@ -1,3 +1,4 @@
+import employees from './data.json' assert { type: 'json'}
 import createPrompt from 'prompt-sync';
 let prompt = createPrompt();
 
