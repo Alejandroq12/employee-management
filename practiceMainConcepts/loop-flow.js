@@ -1,4 +1,4 @@
-import employees from './data.json' assert { type: 'json' };
+import employees from '../data.json' assert { type: 'json' };
 
 // Listing only the first five items
 for (let i = 0; i < employees.length; i++) {

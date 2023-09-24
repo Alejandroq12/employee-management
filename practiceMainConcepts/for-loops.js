@@ -13,7 +13,7 @@ for (let name of names) {
 }
 
 // Array o complex objects
-import employees from './data.json' assert { type: 'json' };
+import employees from '../data.json' assert { type: 'json' };
 
 const employee = employees[0];
 for (let property in employee) {
