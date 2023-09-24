@@ -20,10 +20,10 @@ for (let employee of employees) {
 }
 
 // Nested loop control flow
-for (let emp of employees) {
+employee: for (let emp of employees) {
   for (let property in emp) {
     if (property === 'dateBirth') {
-      continue;
+      continue employee;
     }
     console.log(`${property}: ${emp[property]}`);
   }
