@@ -2,14 +2,24 @@ import employees from './data.json' assert { type: 'json' };
 import createPrompt from 'prompt-sync';
 let prompt = createPrompt();
 
+const logEmployee = (employee) => {
+  Object.entries(employee).forEach((entry) => {
+    console.log(`${entry[0]}: ${entry[1]}`);
+  });
+};
+
 function getInput(promptText, validator, transformer) {
   let value = prompt(promptText);
   if (validator && !validator(value)) {
     console.error(`--Invalid input`);
     process.exit(1);
   }
+  if (transformer) {
+    value = transformer(value);
+  }
   return value;
 }
+
 // Validator functions -------------------------
 const isStringInputValid = function (input) {
   return input ? true : false;
@@ -44,14 +54,12 @@ const isStartDayValid = function (input) {
 function listEmployees() {
   console.log('Employee list --------------------');
   console.log('');
-  for (let emp of employees) {
-    for (let property in emp) {
-      console.log(`${property}: ${emp[property]}`);
-    }
-    console.log('');
+
+  employees.forEach((e) => {
+    logEmployee(e);
     prompt('Press enter to continue...');
-  }
-  console.log(`Employee list completed`);
+  });
+  console.log('Employee list completed.');
 }
 
 function addEmployee() {
@@ -76,12 +84,25 @@ function addEmployee() {
   );
   employee.isActive = getInput(
     'Is employee active (yes or no): ',
-    isBooleanInputValid
+    isBooleanInputValid,
+    (i) => (i === 'yes' ? true : false)
   );
 
   // Output Employee JSON
   const json = JSON.stringify(employee, null, 2);
   console.log(`Employee: ${json}`);
+}
+
+// Search for employee
+function searchById(){
+  const id = getInput("Employee ID: ", null, Number);
+  const result = employees.find(e => e.id === id);
+  if(result) {
+    console.log("")
+    logEmployee(result);
+  } else {
+    console.log("Employee not found");
+  }
 }
 // Application execution -----------------------
 const command = process.argv[2].toLowerCase();
@@ -92,6 +113,9 @@ switch (command) {
     break;
   case 'add':
     addEmployee();
+    break;
+  case 'search-by-id':
+    searchById();
     break;
   default:
     console.log('Unsupported command. Exiting...');
