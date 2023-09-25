@@ -20,6 +20,14 @@ const isStartYearValid = function (input) {
   }
   return true;
 };
+
+const isStartMonthValid = function (input) {
+  let numValue = Number(input);
+  if (!Number.isInteger(numValue) || numValue < 1 || numValue > 12) {
+    return false;
+  }
+  return true;
+};
 // Application commands ------------------------
 function listEmployees() {
   console.log('Employee list --------------------');
