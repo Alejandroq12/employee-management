@@ -15,6 +15,7 @@ switch (command) {
       console.log('');
       prompt('Press enter to continue...');
     }
+    console.log(`Employee list completed`);
     break;
   case 'add':
     console.log('Add employee ---------------------');
