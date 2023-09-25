@@ -2,6 +2,9 @@ import employees from './data.json' assert { type: 'json' };
 import createPrompt from 'prompt-sync';
 let prompt = createPrompt();
 
+// Application commands ------------------------
+
+// Application execution -----------------------
 const command = process.argv[2].toLowerCase();
 
 switch (command) {
