@@ -11,15 +11,15 @@ const isStringInputValid = function (input) {
   return input ? true : false;
 };
 const isBooleanInputValid = function (input) {
-  return (input === 'yes' || input === 'no');
+  return input === 'yes' || input === 'no';
 };
 const isStartYearValid = function (input) {
   let numValue = Number(input);
-  if(!Number.isInteger(numValue) || numValue < 1990 || numValue > 2023) {
+  if (!Number.isInteger(numValue) || numValue < 1990 || numValue > 2023) {
     return false;
   }
   return true;
-}
+};
 // Application commands ------------------------
 function listEmployees() {
   console.log('Employee list --------------------');
