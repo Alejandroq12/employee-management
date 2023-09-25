@@ -8,6 +8,13 @@ switch (command) {
   case 'list':
     console.log('Employee list --------------------');
     console.log('');
+    for (let emp of employees) {
+      for (property in emp) {
+        console.log(`${property}: ${emp[property]}`);
+      }
+      console.log('');
+      prompt('Press enter to continue...');
+    }
     break;
   case 'add':
     console.log('Add employee ---------------------');
