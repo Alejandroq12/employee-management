@@ -1,7 +1,8 @@
-import employees from './data.json' assert { type: 'json'}
+import employees from './data.json' assert { type: 'json' };
 import createPrompt from 'prompt-sync';
 let prompt = createPrompt();
 
+const command = process.argv[2].toLowerCase();
 let employee = {};
 
 let firstName = prompt('First name: ');
