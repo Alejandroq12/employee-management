@@ -3,6 +3,19 @@ import createPrompt from 'prompt-sync';
 let prompt = createPrompt();
 
 const command = process.argv[2].toLowerCase();
+
+switch (command) {
+  case 'list':
+    console.log('Employee list --------------------');
+    console.log('');
+    break;
+  case 'add':
+    console.log('Add employee ---------------------');
+    console.log('');
+  default:
+    console.log('Unsupported command. Exiting...');
+    process.exit(1);
+}
 let employee = {};
 
 let firstName = prompt('First name: ');
