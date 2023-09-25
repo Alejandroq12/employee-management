@@ -2,10 +2,17 @@ import employees from './data.json' assert { type: 'json' };
 import createPrompt from 'prompt-sync';
 let prompt = createPrompt();
 
-function getInput(promptText, validator, transformer){
+function getInput(promptText, validator, transformer) {
   let value = prompt(promptText);
   return value;
 }
+// Validator functions -------------------------
+const isStringInputValid = function (input) {
+  return input ? true : false;
+};
+const isBooleanInputValid = function (input) {
+  return (input === 'yes' || input === 'no');
+};
 // Application commands ------------------------
 function listEmployees() {
   console.log('Employee list --------------------');
