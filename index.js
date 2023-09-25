@@ -9,7 +9,7 @@ switch (command) {
     console.log('Employee list --------------------');
     console.log('');
     for (let emp of employees) {
-      for (property in emp) {
+      for (let property in emp) {
         console.log(`${property}: ${emp[property]}`);
       }
       console.log('');
