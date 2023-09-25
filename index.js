@@ -28,6 +28,14 @@ const isStartMonthValid = function (input) {
   }
   return true;
 };
+
+const isStartDayValid = function (input) {
+  let numValue = Number(input);
+  if (!Number.isInteger(numValue) || numValue < 1 || numValue > 31) {
+    return false;
+  }
+  return true;
+};
 // Application commands ------------------------
 function listEmployees() {
   console.log('Employee list --------------------');
