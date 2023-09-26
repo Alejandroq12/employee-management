@@ -107,7 +107,17 @@ function searchById() {
 
 // Search for employees by name
 function searchByName() {
-  
+  const firstNameSearch = getInput('First name: ').toLowerCase();
+  const lastNameSearch = getInput('Last name: ').toLowerCase();
+  const results = employees.filter((e) => {
+    if (
+      firstNameSearch &&
+      !e.firstName.toLowerCase().includes(firstNameSearch)
+    ) {
+      return false;
+    }
+
+  });
 }
 // Application execution -----------------------
 const command = process.argv[2].toLowerCase();
