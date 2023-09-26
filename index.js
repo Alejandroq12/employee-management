@@ -12,7 +12,7 @@ function getInput(promptText, validator, transformer) {
   let value = prompt(promptText);
   if (validator && !validator(value)) {
     console.error(`--Invalid input`);
-    process.exit(1);
+    return getInput(promptText, validator, transformer);
   }
   if (transformer) {
     value = transformer(value);
@@ -120,6 +120,11 @@ function searchByName() {
       return false;
     }
     return true;
+  });
+  results.forEach((e, index) => {
+    console.log('');
+    console.log(`Search result ${index + 1}-----------------------`);
+    logEmployee(e);
   });
 }
 // Application execution -----------------------
