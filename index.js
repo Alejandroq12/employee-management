@@ -31,12 +31,12 @@ const isBooleanInputValid = function (input) {
 const isIntegerValid = (min, max) => {
   return (input) => {
     let numValue = Number(input);
-    if(!Number.isInteger(numValue) || numValue < min || numValue > max) {
+    if (!Number.isInteger(numValue) || numValue < min || numValue > max) {
       return false;
     }
     return true;
-  }
-}
+  };
+};
 // Application commands ------------------------
 function listEmployees() {
   console.log('Employee list --------------------');
@@ -57,12 +57,12 @@ function addEmployee() {
   employee.lastName = getInput('Last name: ', isStringInputValid);
   let startDateYear = getInput(
     'Start date year (1990-2023): ',
-    isStartYearValid
+    isIntegerValid(1990, 2023)
   );
-  let startDateMonth = getInput('Start date month (1-12): ', isStartMonthValid);
+  let startDateMonth = getInput('Start date month (1-12): ', isIntegerValid(1, 12));
   let startDateDay = getInput(
     'Employee start date day (1-31): ',
-    isStartDayValid
+    isIntegerValid(1, 31)
   );
   employee.startDate = new Date(
     startDateYear,
