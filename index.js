@@ -116,7 +116,10 @@ function searchByName() {
     ) {
       return false;
     }
-
+    if (lastNameSearch && !e.lastName.toLowerCase().includes(lastNameSearch)) {
+      return false;
+    }
+    return true;
   });
 }
 // Application execution -----------------------
