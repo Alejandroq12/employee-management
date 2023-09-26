@@ -104,6 +104,11 @@ function searchById() {
     console.log('Employee not found');
   }
 }
+
+// Search for employees by name
+function searchByName() {
+  
+}
 // Application execution -----------------------
 const command = process.argv[2].toLowerCase();
 
