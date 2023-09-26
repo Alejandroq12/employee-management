@@ -94,14 +94,14 @@ function addEmployee() {
 }
 
 // Search for employee
-function searchById(){
-  const id = getInput("Employee ID: ", null, Number);
-  const result = employees.find(e => e.id === id);
-  if(result) {
-    console.log("")
+function searchById() {
+  const id = getInput('Employee ID: ', null, Number);
+  const result = employees.find((e) => e.id === id);
+  if (result) {
+    console.log('');
     logEmployee(result);
   } else {
-    console.log("Employee not found");
+    console.log('Employee not found');
   }
 }
 // Application execution -----------------------
@@ -116,6 +116,9 @@ switch (command) {
     break;
   case 'search-by-id':
     searchById();
+    break;
+  case 'search-by-name':
+    searchByName();
     break;
   default:
     console.log('Unsupported command. Exiting...');
