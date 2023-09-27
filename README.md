@@ -13,7 +13,7 @@
 
 - [employee-management](#employee-management)
 - [📗 Table of Contents](#-table-of-contents)
-- [📖Guessing Game ](#guessing-game-)
+- [📖Employee Management ](#employee-management-)
   - [🛠 Built With ](#-built-with-)
     - [Tech Stack ](#tech-stack-)
     - [Key Features ](#key-features-)
@@ -35,9 +35,9 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖Guessing Game <a name="about-project"></a>
+# 📖Employee Management <a name="about-project"></a>
 
-"Gessing Game" is a website in which you may type a question and you will get "yes", "no" or "maybe".
+"Employee Management" is a...
 
 ## 🛠 Built With <a name="built-with"></a>
 HTML,
