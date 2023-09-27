@@ -1,9 +1,4 @@
 # employee-management
-employee-management
-
-
-
-# employee-management
 
 <a name="readme-top"></a>
 
@@ -17,7 +12,6 @@ employee-management
 # 📗 Table of Contents
 
 - [employee-management](#employee-management)
-- [employee-management](#employee-management-1)
 - [📗 Table of Contents](#-table-of-contents)
 - [📖Guessing Game ](#guessing-game-)
   - [🛠 Built With ](#-built-with-)
