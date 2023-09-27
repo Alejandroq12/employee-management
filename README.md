@@ -3,21 +3,21 @@ employee-management
 
 
 
-# guessing game
+# employee-management
 
 <a name="readme-top"></a>
 
 <div align="center">
     <img src="./public/logo.png" alt="logo" width="550"  height="auto" />
   <br/>
-  <h3><b>Guessing Game</b></h3>
+  <h3><b>Employee Management</b></h3>
 
 </div>
 <!-- TABLE OF CONTENTS -->
 # 📗 Table of Contents
 
 - [employee-management](#employee-management)
-- [guessing game](#guessing-game)
+- [employee-management](#employee-management-1)
 - [📗 Table of Contents](#-table-of-contents)
 - [📖Guessing Game ](#guessing-game-)
   - [🛠 Built With ](#-built-with-)
