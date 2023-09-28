@@ -37,7 +37,7 @@
 
 # 📖Employee Management <a name="about-project"></a>
 
-"Employee Management" is a...
+"Employee Management" is an employee management CLI.
 
 ## 🛠 Built With <a name="built-with"></a>
 HTML,
