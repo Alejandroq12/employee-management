@@ -61,12 +61,6 @@ JavaScript.
     <li><a href="https://www.npmjs.com/">npm</a></li>
   </ul>
 </details>
-<details>
-  <summary>Linters</summary>
-  <ul>
-      <li><a href="https://eslint.org/">ESLint</a></li>
-  </ul>
-</details>
 
 <!-- Features -->
 
