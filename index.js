@@ -15,6 +15,16 @@ const loadData = async () => {
   }
 }
 
+const writeData = async () => {
+  console.log("Writing data...");
+  try {
+    await fs.writeFile('./data.json', JSON.stringify(employees, null, 2));
+  } catch(err) {
+    console.error("Cannot write employees data.");
+    throw err;
+  }
+}
+
 import createPrompt from 'prompt-sync';
 let prompt = createPrompt();
 
