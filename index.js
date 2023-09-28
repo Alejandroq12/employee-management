@@ -130,32 +130,32 @@ function searchByName() {
 
 // Application execution -------------------------------------------------
 
-// Get the command the user wants to exexcute
-const command = process.argv[2].toLowerCase();
+const main = async () => {
+  // Get the command the user wants to exexcute
+  const command = process.argv[2].toLowerCase();
 
-switch (command) {
+  switch (command) {
+    case 'list':
+      listEmployees();
+      break;
 
-  case 'list':
-    listEmployees();
-    break;
+    case 'add':
+      addEmployee();
+      break;
 
-  case 'add':
-    addEmployee();
-    break;
+    case 'search-by-id':
+      searchById();
+      break;
 
-  case 'search-by-id':
-    searchById();
-    break;
+    case 'search-by-name':
+      searchByName();
+      break;
 
-  case 'search-by-name':
-    searchByName();
-    break;
-
-  default:
-    console.log('Unsupported command. Exiting...');
-    process.exit(1);
-
-}
+    default:
+      console.log('Unsupported command. Exiting...');
+      process.exit(1);
+  }
+};
 
 
 
