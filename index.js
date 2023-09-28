@@ -4,7 +4,16 @@ import fs from 'node:fs/promises';
 let employees = [];
 
 // Loading and writing data to the filesystem -----------------------------
-
+const loadData = async () => {
+  console.log("Loading data...");
+  try {
+    const fileData = await fs.readFile('./data.json',);
+    employees = JSON.parse(fileData);
+  } catch(err) {
+    console.error("Cannot load in employess");
+    throw err;
+  }
+}
 
 import createPrompt from 'prompt-sync';
 let prompt = createPrompt();
