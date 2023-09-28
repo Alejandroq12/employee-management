@@ -46,6 +46,11 @@ function getInput(promptText, validator, transformer) {
   return value;
 }
 
+const getNextEmployeeID = () => {
+  const maxID = Math.max(...employees.map(e => e.id));
+  return maxID + 1;
+}
+
 // Validator functions ---------------------------------------------------
 
 const isStringInputValid = (input) => {
@@ -83,6 +88,7 @@ function addEmployee() {
   console.log(`Add Employee -----------------------------`);
   console.log('');
   let employee = {};
+  employee.id = getNextEmployeeID();
   employee.firstName = getInput("First Name: ", isStringInputValid);
   employee.lastName = getInput("Last Name: ", isStringInputValid);
   let startDateYear = getInput("Employee Start Year (1990-2023): ", isIntegerValid(1990, 2023));
@@ -157,5 +163,9 @@ const main = async () => {
   }
 };
 
-
-
+loadData()
+  .then(main)
+  .catch((err) => {
+    console.error('Cannot complete startup');
+    throw err;
+  });
