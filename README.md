@@ -42,8 +42,7 @@
 ## 🛠 Built With <a name="built-with"></a>
 HTML,
 CSS,
-JavaScript,
-Vue.js.
+JavaScript.
 
 ### Tech Stack <a name="tech-stack"></a>
 
