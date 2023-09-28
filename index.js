@@ -1,5 +1,10 @@
-// Import Sample Data
-import employees from './data.json' assert { type: 'json' }
+import fs from 'node:fs/promises';
+
+// Global variables ----------------------
+let employees = [];
+
+// Loading and writing data to the filesystem -----------------------------
+
 
 import createPrompt from 'prompt-sync';
 let prompt = createPrompt();
