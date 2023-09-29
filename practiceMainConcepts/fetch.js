@@ -1,20 +1,10 @@
-const myHeaders = new Headers();
-myHeaders.append('apikey', 'f463d8dd3c1494aae0aeca639bb18eee');
 
-const requestOptions = {
+var requestOptions = {
   method: 'GET',
-  headers: myHeaders,
-  redirect: 'follow',
+  redirect: 'follow'
 };
 
-try {
-  const result = await fetch(
-    'https://api.apilayer.com/exchangerates_data/latest?base=USD',
-    requestOptions
-  );
-  const resultObj = await result.json();
-  console.log(JSON.stringify(resultObj, null, 2));
-} catch (err) {
-  console.error(`Could not fetch currency data`);
-  throw err;
-}
+fetch("http://api.exchangeratesapi.io/v1/latest?access_key=f463d8dd3c1494aae0aeca639bb18eee", requestOptions)
+  .then(response => response.text())
+  .then(result => console.log(result))
+  .catch(error => console.log('error', error));
