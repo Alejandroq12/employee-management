@@ -2,6 +2,12 @@ import fs from 'node:fs/promises';
 
 // Global variables ----------------------
 let employees = [];
+let currencyData;
+
+// Currency data ----------------------------------------
+const getCurrencyConversionData = async () => {
+  
+}
 
 // Loading and writing data to the filesystem -----------------------------
 const loadData = async () => {
