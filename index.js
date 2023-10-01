@@ -3,10 +3,19 @@ import fs from 'node:fs/promises';
 // Global variables ----------------------
 let employees = [];
 let currencyData;
-
+let access_key = "f463d8dd3c1494aae0aeca639bb18eee";
 // Currency data ----------------------------------------
 const getCurrencyConversionData = async () => {
+  var requestOptions = {
+    method: 'GET',
+    redirect: 'follow'
+  };
   
+  const response = await fetch(`http://api.exchangeratesapi.io/v1/latest?access_key=${access_key}&base=EUR`, requestOptions)
+  if(!response.ok) {
+    throw new Error("Cannot fetch currency data");
+  }
+  currencyData = await response.json();
 }
 
 // Loading and writing data to the filesystem -----------------------------
@@ -58,6 +67,10 @@ const getNextEmployeeID = () => {
 }
 
 // Validator functions ---------------------------------------------------
+const isCurrencyCodeValid = function (code) {
+  const currencyCodes = Object.keys(currencyData.rates);
+  return (currencyCodes.indexOf(code) > -1)
+}
 
 const isStringInputValid = (input) => {
   return (input) ? true : false;
