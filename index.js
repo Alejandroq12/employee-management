@@ -1,3 +1,6 @@
+import { loadData, writeData } from './data.js';
+import { getSalary, getCurrencyConversionData } from './currency.js';
+
 // Global variables ----------------------
 let employees = [];
 let currencyData;
@@ -11,8 +14,8 @@ const logEmployee = (employee) => {
       console.log(`${entry[0]}: ${entry[1]}`);
     }
   });
-  console.log(`Salary EUR: ${getSalary(employee.salaryEUR, "EUR")}`);
-  console.log(`Local Salary: ${getSalary(employee.salaryEUR, employee.localCurrency)}`);
+  console.log(`Salary EUR: ${getSalary(employee.salaryEUR, "EUR", currencyData)}`);
+  console.log(`Local Salary: ${getSalary(employee.salaryEUR, employee.localCurrency, currencyData)}`);
 }
 
 function getInput(promptText, validator, transformer) {
@@ -85,7 +88,7 @@ async function addEmployee() {
   employee.localCurrency = getInput("Local currency (3 letter code): ", isCurrencyCodeValid);
 
   employees.push(employee);
-  await writeData();
+  await writeData(employees);
 }
 
 // Search for employees by id
@@ -150,7 +153,11 @@ const main = async () => {
 };
 
 Promise.all([loadData(), getCurrencyConversionData()])
-  .then(main)
+  .then(results => {
+    employees = results[0];
+    currencyData = results[1];
+    return main();
+  })
   .catch((err) => {
     console.error('Cannot complete startup');
     throw err;
