@@ -1,4 +1,4 @@
-import { loadData, writeData } from './data.js';
+import { getAllEmployees, insertEmployee } from './database.js';
 import { getSalary, getCurrencyConversionData } from './currency.js';
 
 // Global variables ----------------------
@@ -31,6 +31,9 @@ function getInput(promptText, validator, transformer) {
 }
 
 const getNextEmployeeID = () => {
+  if(employees.length === 0){
+    return 1;
+  }
   const maxID = Math.max(...employees.map(e => e.id));
   return maxID + 1;
 }
@@ -79,16 +82,16 @@ async function addEmployee() {
   employee.id = getNextEmployeeID();
   employee.firstName = getInput("First Name: ", isStringInputValid);
   employee.lastName = getInput("Last Name: ", isStringInputValid);
+  employee.email = getInput("Email: ", isStringInputValid);
   let startDateYear = getInput("Employee Start Year (1990-2023): ", isIntegerValid(1990, 2023));
   let startDateMonth = getInput("Employee Start Date Month (1-12): ", isIntegerValid(1, 12));
   let startDateDay = getInput("Employee Start Date Day (1-31): ", isIntegerValid(1, 31));
   employee.startDate = new Date(startDateYear, startDateMonth - 1, startDateDay);
   employee.isActive = getInput("Is employee active (yes or no): ", isBooleanInputValid, i => (i === "yes"));
-  employee.salaryEUR = getInput("Annual salary in EUR: ", isIntegerValid(100000, 1000000));
+  employee.salaryEUR = getInput("Annual salary in EUR: ", isIntegerValid(20000, 1000000));
   employee.localCurrency = getInput("Local currency (3 letter code): ", isCurrencyCodeValid);
 
-  employees.push(employee);
-  await writeData(employees);
+  await insertEmployee(employee);
 }
 
 // Search for employees by id
@@ -152,7 +155,7 @@ const main = async () => {
   }
 };
 
-Promise.all([loadData(), getCurrencyConversionData()])
+Promise.all([getAllEmployees(), getCurrencyConversionData()])
   .then(results => {
     employees = results[0];
     currencyData = results[1];
