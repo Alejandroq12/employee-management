@@ -1,29 +1,6 @@
 // Global variables ----------------------
 let employees = [];
 let currencyData;
-let access_key = "f463d8dd3c1494aae0aeca639bb18eee";
-// Currency data ----------------------------------------
-const getCurrencyConversionData = async () => {
-  var requestOptions = {
-    method: 'GET',
-    redirect: 'follow'
-  };
-  
-  const response = await fetch(`http://api.exchangeratesapi.io/v1/latest?access_key=${access_key}&base=EUR`, requestOptions)
-  if(!response.ok) {
-    throw new Error("Cannot fetch currency data");
-  }
-  currencyData = await response.json();
-}
-
-const getSalary = (amountEUR, currency) => {
-  const amount = (currency === "EUR") ? amountEUR : amountEUR * currencyData.rates[currency];
-  const formatter = Intl.NumberFormat('de-DE', {
-    style: 'currency',
-    currency: currency
-  });
-  return formatter.format(amount);
-}
 
 import createPrompt from 'prompt-sync';
 let prompt = createPrompt();
