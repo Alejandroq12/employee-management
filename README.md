@@ -3,7 +3,7 @@
 <a name="readme-top"></a>
 
 <div align="center">
-    <img src="./public/logo.png" alt="logo" width="550"  height="auto" />
+    <img src="./assets/logo.png" alt="logo" width="550"  height="auto" />
   <br/>
   <h3><b>Employee Management</b></h3>
 
@@ -37,7 +37,7 @@
 
 # 📖Employee Management <a name="about-project"></a>
 
-"Employee Management" is an employee management CLI.
+"Employee Management" is an employee management CLI that allows you to add, list and search by id.
 
 ## 🛠 Built With <a name="built-with"></a>
 HTML,
@@ -60,14 +60,14 @@ JavaScript.
   <ul>
     <li><a href="https://www.npmjs.com/">npm</a></li>
   </ul>
-</details>uhnnnjjjnjyuhyguygu
+</details>
 
 <!-- Features -->
 
 ### Key Features <a name="key-features"></a>
 
-- **Guess questions.**
-- **Fetch data from API.**
+- **It allows to add, search and list employees.**
+- **Fetch data from API to get currency value.**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -75,7 +75,7 @@ JavaScript.
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo Link Netlify](https://thunderous-zuccutto-2fcc61.netlify.app/)
+- It will be available soon.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -89,7 +89,6 @@ To get a local copy up and running, follow these steps.
 
 In order to run this project you need:
 
-- A web browser to view output e.g [Google Chrome](https://www.google.com/chrome/).
 - An IDE e.g [Visual studio code](https://code.visualstudio.com/).
 - `node` should be installed in your local machine, [node website](https://nodejs.org/en/download/).
 - Install the `npm` package manager use this [to install both node and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm).
@@ -100,12 +99,12 @@ In order to run this project you need:
 Clone this repository to your desired folder or download the Zip folder:
 
 ```
-https://github.com/Alejandroq12/vue-fundamentals
+https://github.com/Alejandroq12/employee-management.git
 ```
 
 - Navigate to the location of the folder in your machine:
 
-**``you@your-Pc-name:~$ cd vue-fundamentals``**
+**``you@your-Pc-name:~$ cd employee-management``**
 
 ### Install
 
@@ -118,28 +117,43 @@ npm install
 
 ### Usage
 
-To run the project, follow these instructions:
+To run the project, follow these instructions(make sure to be in the root folder):
 
-- After Cloning this repo to your local machine.
-- You can also use `npm run serve` command in terminal to run this at the localhost.
+To add an employee:
+```
+node index.js add
+
+```
+
+To list employees:
+```
+node index.js list
+
+```
+
+To search by ID:
+```
+node index.js search-by-id
+
+```
+
+To search by name:
+```
+node index.js search-by-name
+
+```
 
 ### Run tests
 
 To run tests, run the following command:
 
 ```
-npm run test:unit
-```
-
-```
-npm run lint
+npx eslint .
 ```
 
 ### Deployment <a name="deployment"></a>
 
-You can deploy this project using: Render or Netlify,
-- I used Netlify and Render to deploy my website.
-- For more information about publishing sources, see "[Netlify](https://app.netlify.com/)" or "[Render](https://render.com/)".
+- It will be available in the future. Thank you for your patience.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -159,8 +173,8 @@ You can deploy this project using: Render or Netlify,
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [x] **I will create a responsive website.**
-- [ ] **i will add more pages.**
+- [ ] **I will allow to erase users.**
+- [ ] **I will add validations.**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -186,7 +200,7 @@ If you like this project give me a star ⭐️
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-I want to thank Fernando Herrera for guiding me in the creation of this project.
+-----------
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -196,7 +210,7 @@ I want to thank Fernando Herrera for guiding me in the creation of this project.
 
 - **Why did you code this project?**
 
-  - Because I want to master Vue.js.
+  - Because I want to master JavaScript.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
