@@ -10,6 +10,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "prompt-sync": "^4.2.0"
+    "prompt-sync": "^4.2.0",
+    "sqlite": "^5.0.1",
+    "sqlite3": "^5.1.6"
   }
 }
