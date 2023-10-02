@@ -15,13 +15,11 @@ fs.readFile('./data2.json', 'utf8')
   });
 
 // Create a custom promise with the callback API
-const readFile = async (filename) => {
-  return new Promise((resolve, reject) => {
-    fsc.readFile('data2.json', 'utf8', (err, data) => {
-      if (err) {
-        reject(err);
-      }
-      resolve(data);
-    });
+const readFile = async (filename) => new Promise((resolve, reject) => {
+  fsc.readFile('data2.json', 'utf8', (err, data) => {
+    if (err) {
+      reject(err);
+    }
+    resolve(data);
   });
-};
+});
