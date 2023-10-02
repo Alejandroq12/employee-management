@@ -1,13 +1,41 @@
 // Global variables ----------------------
 let employees = [];
+let currencyData;
+let access_key = "f463d8dd3c1494aae0aeca639bb18eee";
+// Currency data ----------------------------------------
+const getCurrencyConversionData = async () => {
+  var requestOptions = {
+    method: 'GET',
+    redirect: 'follow'
+  };
+  
+  const response = await fetch(`http://api.exchangeratesapi.io/v1/latest?access_key=${access_key}&base=EUR`, requestOptions)
+  if(!response.ok) {
+    throw new Error("Cannot fetch currency data");
+  }
+  currencyData = await response.json();
+}
+
+const getSalary = (amountEUR, currency) => {
+  const amount = (currency === "EUR") ? amountEUR : amountEUR * currencyData.rates[currency];
+  const formatter = Intl.NumberFormat('de-DE', {
+    style: 'currency',
+    currency: currency
+  });
+  return formatter.format(amount);
+}
 
 import createPrompt from 'prompt-sync';
 let prompt = createPrompt();
 
 const logEmployee = (employee) => {
   Object.entries(employee).forEach(entry => {
-    console.log(`${entry[0]}: ${entry[1]}`);
+    if(entry[0] !== "salaryEUR" || entry[0] !== "localCurrency") {
+      console.log(`${entry[0]}: ${entry[1]}`);
+    }
   });
+  console.log(`Salary EUR: ${getSalary(employee.salaryEUR, "EUR")}`);
+  console.log(`Local Salary: ${getSalary(employee.salaryEUR, employee.localCurrency)}`);
 }
 
 function getInput(promptText, validator, transformer) {
@@ -28,6 +56,10 @@ const getNextEmployeeID = () => {
 }
 
 // Validator functions ---------------------------------------------------
+const isCurrencyCodeValid = function (code) {
+  const currencyCodes = Object.keys(currencyData.rates);
+  return (currencyCodes.indexOf(code) > -1)
+}
 
 const isStringInputValid = (input) => {
   return (input) ? true : false;
@@ -72,6 +104,8 @@ async function addEmployee() {
   let startDateDay = getInput("Employee Start Date Day (1-31): ", isIntegerValid(1, 31));
   employee.startDate = new Date(startDateYear, startDateMonth - 1, startDateDay);
   employee.isActive = getInput("Is employee active (yes or no): ", isBooleanInputValid, i => (i === "yes"));
+  employee.salaryEUR = getInput("Annual salary in EUR: ", isIntegerValid(100000, 1000000));
+  employee.localCurrency = getInput("Local currency (3 letter code): ", isCurrencyCodeValid);
 
   employees.push(employee);
   await writeData();
@@ -138,7 +172,7 @@ const main = async () => {
   }
 };
 
-loadData()
+Promise.all([loadData(), getCurrencyConversionData()])
   .then(main)
   .catch((err) => {
     console.error('Cannot complete startup');
