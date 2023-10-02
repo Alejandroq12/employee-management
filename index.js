@@ -1,29 +1,5 @@
-import fs from 'node:fs/promises';
-
 // Global variables ----------------------
 let employees = [];
-
-// Loading and writing data to the filesystem -----------------------------
-const loadData = async () => {
-  console.log("Loading data...");
-  try {
-    const fileData = await fs.readFile('./data.json',);
-    employees = JSON.parse(fileData);
-  } catch(err) {
-    console.error("Cannot load in employess");
-    throw err;
-  }
-}
-
-const writeData = async () => {
-  console.log("Writing data...");
-  try {
-    await fs.writeFile('./data.json', JSON.stringify(employees, null, 2));
-  } catch(err) {
-    console.error("Cannot write employees data.");
-    throw err;
-  }
-}
 
 import createPrompt from 'prompt-sync';
 let prompt = createPrompt();
